@@ -46,7 +46,11 @@
         </div>
         <div class="q-px-md">
           <keep-alive>
-         <map-component :config="config" :coordinate="config.warehouse_coordinate" @emitOngkir="emitOngkir"/>
+         <map-component 
+         :config="config" 
+         :coordinate="config.warehouse_coordinate" 
+         @emitData="emitData"
+         />
           </keep-alive>
          <div class="text-red text-xs q-py-sm" v-if="errors.includes('shipping_cost')">Pengiriman belum dipilih</div>
         </div>
@@ -131,7 +135,8 @@ export default {
         customer_whatsapp: '',
         customer_address: '',
         order_note: '',
-        shipping_cost: 0
+        shipping_cost: 0,
+        user_coordinate: []
       }
     }
   },
@@ -165,8 +170,10 @@ export default {
       this.goToWhatsapp()
 
     },
-    emitOngkir(amount) {
-      this.form.shipping_cost = amount
+    emitData(data) {
+      console.log(data);
+      this.form.shipping_cost = data.amount
+      this.form.user_coordinate = data.user_coordinate
       this.errors = []
     },
     incrementQty(cart) {
@@ -246,13 +253,13 @@ export default {
       if(this.form.order_note) {
         str += `*Catatan:*\n${this.form.order_note}\n`
       }
+      let gmapsUrl = 'https://www.google.com/maps/place'
+
+      if(this.form.user_coordinate.length) {
+        str += `\n*Lokasi: *\n${gmapsUrl}/${this.form.user_coordinate[0]},${this.form.user_coordinate[1]}`
+      }
 
       let link = whatsappUrl+'/send?phone=' + whatsapp + '&text=' + encodeURI(str);
-
-      // console.log(str);
-
-      // console.log(link);
-      // return
 
       setTimeout(() => {
         this.$store.dispatch('cart/clearCart')

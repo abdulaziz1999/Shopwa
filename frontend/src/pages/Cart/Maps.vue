@@ -76,7 +76,8 @@ export default {
       hargaJarakPerKm: 0,
       loading: false,
       lastLocalCost: 0,
-      maxDistance: 0
+      maxDistance: 0,
+      user_coordinate: []
     }
   },
   mounted() {
@@ -139,7 +140,10 @@ export default {
           return
         }
 
-        this.$emit('emitOngkir', this.getOngkir())
+        this.$emit('emitData', {
+          amount:  this.getOngkir(),
+          user_coordinate: this.user_coordinate
+        })
 
         setTimeout(() => {
           if(this.setDestinationMarker != undefined) {
@@ -261,11 +265,12 @@ export default {
         .openOn(this.map);
       L.DomEvent.on(btn, 'click', () =>  {
 
-        this.setDestinationMarker(e.latlng)
+        this.setDestinationMarker([e.latlng.lat, e.latlng.lng])
         
       });
     },
     setDestinationMarker(latlng) {
+      this.user_coordinate = latlng
 
       if(this.destinationCenter) {
 
@@ -318,8 +323,8 @@ export default {
             this.destinationMarker = L.marker([route.coordinates[route.coordinates.length -1].lat, route.coordinates[route.coordinates.length -1].lng], this.destinationMarkerOption);
 
             this.destinationMarker.on('dragend', (e) => {
-
-                this.setDestinationMarker(e.target._latlng)
+              let latlng = e.target._latlng
+              this.setDestinationMarker([latlng.lat, latlng.lng])
 
             })
 
