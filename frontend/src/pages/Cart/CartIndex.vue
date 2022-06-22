@@ -248,7 +248,7 @@ export default {
       }
       str += `Total: *${this.moneyIDR(this.sumtotal())}*\n`
       str += `-------------------------------------------------\n\n`
-      str += `*Nama:*\n ${this.form.customer_name} (${this.form.customer_whatsapp})\n`
+      str += `*Nama:*\n${this.form.customer_name} (${this.form.customer_whatsapp})\n`
       str += `*Alamat:*\n${this.formatAddressCod(this.form.customer_address)}\n`
       if(this.form.order_note) {
         str += `*Catatan:*\n${this.form.order_note}\n`
@@ -256,7 +256,7 @@ export default {
       let gmapsUrl = 'https://www.google.com/maps/place'
 
       if(this.form.user_coordinate.length) {
-        str += `\n*Lokasi: *\n${gmapsUrl}/${this.form.user_coordinate[0]},${this.form.user_coordinate[1]}`
+        str += `\n*Lokasi:*\n${gmapsUrl}/${this.form.user_coordinate[0]},${this.form.user_coordinate[1]}`
       }
 
       let link = whatsappUrl+'/send?phone=' + whatsapp + '&text=' + encodeURI(str);
