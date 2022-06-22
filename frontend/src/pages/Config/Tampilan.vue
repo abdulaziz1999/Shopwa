@@ -47,7 +47,7 @@
         </div>
       </q-item-section>
     </q-item>
-     <q-item class="q-mt-md">
+     <!-- <q-item class="q-mt-md">
       <q-item-section>
         <q-item-label class="text-weight-medium">Social Proof Popup</q-item-label>
          <div class="q-mb-sm text-caption text-grey-7 q-mt-sm">
@@ -57,7 +57,7 @@
       <q-item-section side top>
         <q-toggle v-model="form.is_notifypro" :label="form.is_notifypro? 'ON' : 'OFF'" left-label color="green-6"></q-toggle>
       </q-item-section>
-    </q-item>
+    </q-item> -->
     <q-item v-if="form.is_notifypro">
       <q-item-section>
         <q-input outlined dense label="Jeda Waktu Tayang" mask="###" :hint="'Popup akan tayang setiap ' + form.notifypro_interval +' Detik'" v-model="form.notifypro_interval"></q-input>
@@ -68,7 +68,7 @@
     </q-item>
   </q-list>
   <q-card-section class="flex justify-end">
-    <q-btn unelevated size="12px" label="Simpan" color="blue-7" @click="saveTampilan"></q-btn>
+    <q-btn unelevated size="12px" label="Simpan Perubahan" color="blue-7" @click="saveTampilan"></q-btn>
   </q-card-section>
 </q-card>
 </template>

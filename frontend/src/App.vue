@@ -17,9 +17,7 @@ export default {
   mounted() {
     if(! this.session_id) {
       this.makeSessionId()
-    } else {
-      this.$store.dispatch('cart/getCarts', this.session_id)
-    }
+    } 
   },
   created() {
     this.$store.commit('REMOVE_INSTALL_APP')

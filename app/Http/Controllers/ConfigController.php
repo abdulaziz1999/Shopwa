@@ -18,18 +18,9 @@ class ConfigController extends Controller
     }
     public function adminConfig()
     {
-        $hiddenFields = [
-            'rajaongkir_apikey',
-            'tripay_api_key',
-            'tripay_private_key',
-            'tripay_merchant_code',
-            'telegram_bot_token',
-            'telegram_user_id',
-        ];
-
         return response([
             'success' => true,
-            'results' => Config::first()->makeVisible($hiddenFields)
+            'results' => Config::first()
         ], 200);
     }
 

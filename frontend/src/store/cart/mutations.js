@@ -44,10 +44,10 @@ export function SET_CARTS (state, payload) {
 }
 
 export function COMMIT_CARTS(state) {
-  localStorage.setItem('_wacommerce-carts',JSON.stringify(state.carts))
+  localStorage.setItem('__state_cart',JSON.stringify(state.carts))
 }
 export function ROLLBACK_CARTS(state) {
-  state.carts = JSON.parse(localStorage.getItem('_wacommerce-carts'))
+  state.carts = JSON.parse(localStorage.getItem('__state_cart'))
 }
 export function SET_COUPON_DISCOUNT (state, payload) {
   state.coupon_discount = payload

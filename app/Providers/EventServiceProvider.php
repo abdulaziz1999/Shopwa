@@ -37,6 +37,5 @@ class EventServiceProvider extends ServiceProvider
     {
         Slider::observe(SliderObserver::class);
         Post::observe(PostObserver::class);
-        BankAccount::observe(BankAccountObserver::class);
     }
 }

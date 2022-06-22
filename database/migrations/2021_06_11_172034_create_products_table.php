@@ -20,7 +20,6 @@ class CreateProductsTable extends Migration
             $table->text('description');
             $table->integer('stock');
             $table->bigInteger('price');
-            $table->integer('sold')->nullable();
             $table->boolean('status')->default(true);
             $table->foreignId('category_id')->nullable();
             $table->integer('weight')->default(1000);

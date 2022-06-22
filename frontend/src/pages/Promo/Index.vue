@@ -62,7 +62,7 @@
         <div class="card-heading">{{ formType }} Promo</div>
           <q-form @submit.prevent="submit">
             <q-card-section class="q-gutter-y-sm">
-              <q-input required filled square label="Label" v-model="form.label" :rules="[val => !!val || 'Field is required']"></q-input>
+              <q-input placeholder="Flash Sale" required filled square label="Label" v-model="form.label" :rules="[val => !!val || 'Field is required']"></q-input>
               <q-input label="Start Date" filled v-model="form.start_date" readonly :rules="[val => !!val || 'Field is required']">
                 <template v-slot:append>
                    <q-icon name="event" class="cursor-pointer">

@@ -25,8 +25,8 @@ import getters from './getters'
 import actions from './actions'
 
 const stateData = createPersistedState({
-  key: '__state',
-  paths: ['user', 'cart', 'shop', 'config', 'session_id', 'product.favorites', 'coupon.coupon_discount'],
+  key: '__state_warung',
+  paths: ['user', 'cart', 'shop', 'config', 'session_id', 'product.favorites'],
   storage: {
     getItem: (key) => ls.get(key),
     setItem: (key, value) => ls.set(key, value, { expires: 1 }),

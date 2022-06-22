@@ -59,7 +59,7 @@
             val => val && val != '' || 'Tidak boleh kosong'
             ]"
             />
-            <q-select
+            <!-- <q-select
             dense
             v-model="form.position"
             :options="positionOptions"
@@ -67,16 +67,15 @@
               :rules="[
             val => val && val != ''|| 'Tidak boleh kosong'
             ]"
-          />
+          /> -->
            <q-input 
-            v-if="form.position == 'Featured'"
             dense
             label="Deskripsi" 
             v-model="form.description" 
             autogrow
             class="q-mb-sm"
             />
-            <q-input 
+            <!-- <q-input 
             dense
             label="Urutan" 
             v-model="form.weight" 
@@ -85,7 +84,18 @@
             :rules="[
             val => val && val > 0 || 'Tidak boleh kosong'
             ]"
-            />
+            /> -->
+          </q-card-section>
+          <q-card-section>
+            <q-btn @click.prevent="handleUploadImage" color="primary" size="sm" label="Upload Gambar"></q-btn>
+            <input type="file" class="hidden" ref="image" @change="handleImagePreview">
+          </q-card-section>
+          <q-card-section v-if="imagePreview">
+            <div class="row items-center justify-between q-gutter-x-sm">
+                <img :src="imagePreview" style="max-height:80px;width:auto;object-fit:contain"/>
+            </div>
+          </q-card-section>
+          <q-card-section>
             <div class="q-mt-md">
              <q-toggle label="Link ke Post" v-model="linkToPost" @input="handleLinkPost"></q-toggle>
             </div>
@@ -103,15 +113,6 @@
                   </q-list>
               </div>
             </template>
-          </q-card-section>
-          <q-card-section>
-            <q-btn @click.prevent="handleUploadImage" color="primary" size="sm" label="Upload Gambar"></q-btn>
-            <input type="file" class="hidden" ref="image" @change="handleImagePreview">
-          </q-card-section>
-          <q-card-section v-if="imagePreview">
-            <div class="row items-center justify-between q-gutter-x-sm">
-                <img :src="imagePreview" style="max-height:80px;width:auto;object-fit:contain"/>
-            </div>
           </q-card-section>
           <q-card-actions class="justify-end q-pa-md sticky-bottom bg-grey-2">
             <q-btn @click.prevent="closeModal" type="button" color="secondary" label="Batal"></q-btn>
@@ -139,7 +140,7 @@ export default {
         label: '',
         description: '',
         weight: '',
-        position: '',
+        position: 'Featured',
         image: '',
         del_image: false,
         post_id:''
@@ -241,7 +242,7 @@ export default {
       this.form.description = ''
       this.form.post_id = ''
       this.form.image = ''
-      this.form.position = ''
+      // this.form.position = ''
       this.form.weight = ''
       this.form.del_image = false
       this.imagePreview = ''

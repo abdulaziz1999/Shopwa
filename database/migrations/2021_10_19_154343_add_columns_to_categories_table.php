@@ -15,7 +15,6 @@ class AddColumnsToCategoriesTable extends Migration
     {
         Schema::table('categories', function (Blueprint $table) {
             $table->boolean('is_front')->default(true);
-            $table->boolean('is_special')->default(false);
             $table->tinyInteger('weight')->default(1);
         });
     }
@@ -29,7 +28,6 @@ class AddColumnsToCategoriesTable extends Migration
     {
         Schema::table('categories', function (Blueprint $table) {
             $table->dropColumn('is_front');
-            $table->dropColumn('is_special');
             $table->dropColumn('weight');
         });
     }

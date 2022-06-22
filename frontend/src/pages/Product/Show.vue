@@ -259,7 +259,7 @@
           <div class="q-mb-sm text-subtitle2" v-if="this.product"># {{ product.title }}</div>
           <q-input outlined autogrow autofocus v-model="chatText" placeholder="contoh: Halo Admin, Apakah ini masih ada?"></q-input>
           <div class="q-pt-sm">
-            <div class="q-pa-xs text-xs cursor-pointer" v-for="chat in defaultChat" :key="chat" @click="changeChatText(chat)">
+            <div class="q-pa-xs cursor-pointer" v-for="chat in defaultChat" :key="chat" @click="changeChatText(chat)">
               <span>{{ chat }}</span>
             </div>
           </div>

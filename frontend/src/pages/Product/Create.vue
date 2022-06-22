@@ -43,7 +43,7 @@
                 />
               </div>
 
-              <div class="col">
+              <!-- <div class="col">
 
               <q-input 
                 filled 
@@ -53,7 +53,7 @@
                 suffix="gram"
                 :rules="[val => val && val > 49 || 'Berat harus diisi min 50 gram']"
               />
-              </div>
+              </div> -->
 
 
             </div>
@@ -240,7 +240,7 @@ export default {
       form: {
         title: '',
         price: '',
-        weight: '',
+        weight: 1000,
         stock: '',
         description: '',
         category_id:'',

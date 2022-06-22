@@ -1,6 +1,6 @@
 <template>
   <q-page class="bg-grey-1 default" :class="{'flex flex-center' : loading }">
-    <q-header class="bg-white text-dark box-shadow">
+    <q-header reveal :reveal-offset="0" class="bg-white text-dark box-shadow">
       <q-toolbar class="items-center sans">
         <img v-if="shop" class="logo" :src="shop.logo? shop.logo : '/icon/logo.png'" />
         <q-toolbar-title v-if="shop && shop.name" class="text-weight-bold text-primary">{{ shop.name }}</q-toolbar-title>
@@ -12,11 +12,11 @@
       <div id="slider" class="q-pt-sm" v-if="sliders.data.length">
         <slider :datas="sliders.data" />
       </div>
-      <div id="featured" class="auto-padding-side block-container q-pt-md" v-if="blocks.featured.length">
+      <!-- <div id="featured" class="auto-padding-side block-container q-pt-md" v-if="blocks.featured.length">
         <featured-carousel :datas="blocks.featured" />
-      </div>
-      <div id="categories" v-if="categories && categories.data.length > 1" class="auto-padding-side block-container">
-        <div class="block-heading">
+      </div> -->
+      <div id="categories" v-if="categories && categories.data.length > 1" class="auto-padding-side">
+        <div class="block-heading q-py-md">
           <div class="block-title"><h2>Kategori</h2></div>
         </div>
         <div class="block-content q-pb-sm">
@@ -78,7 +78,7 @@ export default {
     'category-carousel': () => import('./block/CategoryCarousel.vue'),
     'product-promo': () => import('./../shared-components/ProductPromo.vue'),
     'post-block': () => import('./../shared-components/PostBlock.vue'), 
-    'featured-carousel': () => import('./../shared-components/FeaturedCarousel.vue'),
+    // 'featured-carousel': () => import('./../shared-components/FeaturedCarousel.vue'),
     'partner-carousel': () => import('components/PartnerCarousel.vue'),
     'post-block': () => import('./../shared-components/PostBlock.vue'), 
     'footer-block': () => import('./../shared-components/FooterBlock.vue'),
