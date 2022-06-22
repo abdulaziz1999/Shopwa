@@ -256,7 +256,7 @@ export default {
       let gmapsUrl = 'https://www.google.com/maps/place'
 
       if(this.form.user_coordinate.length) {
-        str += `\n*Lokasi:*\n${gmapsUrl}/${this.form.user_coordinate[0]},${this.form.user_coordinate[1]}`
+        str += `*Lokasi:*\n${gmapsUrl}/${this.form.user_coordinate[0]},${this.form.user_coordinate[1]}`
       }
 
       let link = whatsappUrl+'/send?phone=' + whatsapp + '&text=' + encodeURI(str);
