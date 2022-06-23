@@ -50,22 +50,8 @@ export default function ( { store } ) {
         next({
           path: '/p/login',
         })
-      } else if(!isAdmin()) {
-        next({
-          path: '/me/order'
-        }) 
       } else {
 
-        next()
-      }
-    } else if (to.matched.some(record => record.meta.requiresCustomer)) {
-      // this route requires auth, check if logged in
-      // if not, redirect to login page.
-      if (!isLoggedIn()) {
-        next({
-          path: '/p/login',
-        })
-      } else {
         next()
       }
     } else {
