@@ -56,9 +56,9 @@
 
         </div>
           </q-form>
-          <div class="text-center q-mt-sm">
+          <!-- <div class="text-center q-mt-sm">
           Belum punya akun <q-btn no-caps color="green-7" padding="xs" flat :disabled="isLoading" label="Daftar Disini" :to="{ name: 'Register'}"></q-btn>
-          </div>
+          </div> -->
           <div class="text-center q-mt-sm">
           <q-btn no-caps color="green-7" padding="xs" flat :disabled="isLoading" label="Lupa password?" :to="{ name: 'ForgotPassword'}"></q-btn>
           </div>
