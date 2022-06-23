@@ -41,7 +41,6 @@ export default {
       if(response.status == 200) {
         commit('SET_SHOP', response.data.results.shop),
         commit('SET_CONFIG', response.data.results.config)
-        commit('block/SET_BLOCKS', response.data.results.blocks, { root: true }),
         commit('product/SET_INITIAL_PRODUCTS', response.data.results.products, { root: true })
         commit('product/SET_PRODUCT_PROMO', response.data.results.product_promo, { root: true })
         commit('category/SET_CATEGORIES', response.data.results.categories, { root: true })

@@ -12,9 +12,6 @@
       <div id="slider" class="q-pt-sm" v-if="sliders.data.length">
         <slider :datas="sliders.data" />
       </div>
-      <!-- <div id="featured" class="auto-padding-side block-container q-pt-md" v-if="blocks.featured.length">
-        <featured-carousel :datas="blocks.featured" />
-      </div> -->
       <div id="categories" v-if="categories && categories.data.length > 1" class="auto-padding-side">
         <div class="block-heading q-py-md">
           <div class="block-title"><h2>Kategori</h2></div>
@@ -27,31 +24,10 @@
       <div id="product-promo" v-if="productPromo.length" >
         <product-promo :product_promo="productPromo" />
       </div>
-      
-      <div v-if="banner1" class="banner auto-padding-side block-container">
-        <img :src="banner1.image_url" @click="goToPost(banner1)">
-      </div>
-      
+
       <product-block :products="products" />
 
-      <div v-if="blocks.partner.length" class="partner auto-padding-side block-container">
-        <div class="block-heading">
-          <div class="block-title"><h2>Partners</h2></div>
-        </div>
-        <div class="block-content">
-          <partner-carousel :datas="blocks.partner" />
-        </div>
-      </div>
-      
-      <div v-if="banner2" class="banner auto-padding-side block-container">
-        <img :src="banner2.image_url" @click="goToPost(banner2)">
-      </div>
-
       <post-block :posts="posts" />
-
-      <div v-if="banner3" class="banner auto-padding block-container">
-        <img :src="banner3.image_url" @click="goToPost(banner3)">
-      </div>
 
       <install-app />
 
@@ -78,9 +54,6 @@ export default {
     'category-carousel': () => import('./block/CategoryCarousel.vue'),
     'product-promo': () => import('./../shared-components/ProductPromo.vue'),
     'post-block': () => import('./../shared-components/PostBlock.vue'), 
-    // 'featured-carousel': () => import('./../shared-components/FeaturedCarousel.vue'),
-    'partner-carousel': () => import('components/PartnerCarousel.vue'),
-    'post-block': () => import('./../shared-components/PostBlock.vue'), 
     'footer-block': () => import('./../shared-components/FooterBlock.vue'),
     'install-app': () => import('components/InstallApp.vue')
   },
@@ -93,7 +66,6 @@ export default {
   },
   computed: {
     ...mapState({
-      blocks: state => state.block.blocks,
       sliders: state => state.slider.sliders ,
       categories: state => state.category.categories ,
       products: state => state.product.initial_products,
@@ -111,39 +83,6 @@ export default {
         return (this.$q.screen.width /1.5) +'px'
       }
     },
-    banner1() {
-      if(this.blocks.banner.length) {
-        let banner = this.blocks.banner.find(b => b.weight == 1)
-        if(banner != undefined) {
-          return banner
-        } else {null
-          return 
-        }
-      }
-      return null
-    },
-    banner2() {
-      if(this.blocks.banner.length) {
-        let banner = this.blocks.banner.find(b => b.weight == 2)
-        if(banner != undefined) {
-          return banner
-        } else {null
-          return 
-        }
-      }
-      return null
-    },
-    banner3() {
-      if(this.blocks.banner.length) {
-        let banner = this.blocks.banner.find(b => b.weight == 3)
-        if(banner != undefined) {
-          return banner
-        } else {null
-          return 
-        }
-      }
-      return null
-    },
   },
   methods: {
     ...mapActions(['getInitialData']),
@@ -154,11 +93,6 @@ export default {
       if(!this.search || this.search == '') return
         this.$router.push({name: 'ProductSearch', query: {q: this.search }})
     },
-    goToPost(block) {
-      if(block.post) {
-        this.$router.push({name: 'FrontPostShow', params: { slug: block.post.slug }})
-      }
-    }
   },
   mounted() {
     if(this.config) {

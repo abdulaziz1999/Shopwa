@@ -12,12 +12,7 @@ import product from './product'
 import category from './categories'
 import slider from './slider'
 import post from './post'
-import block from './block'
-import order from './order'
-import bank from './bank'
 import cart from './cart'
-import discount from './discount'
-import coupon from './coupon'
 import promo from './promo'
 
 import mutations from './mutations'
@@ -71,12 +66,7 @@ export default function (/* { ssrContext } */) {
       category,
       slider,
       post,
-      block,
-      order,
-      bank,
       cart,
-      discount,
-      coupon,
       promo,
     },
     plugins: [stateData],
