@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
-use App\Models\Block;
 use App\Models\Store;
 use App\Models\Config;
 use App\Models\Slider;
@@ -28,12 +27,6 @@ class FrontApiController extends Controller
             return Slider::OrderBy('weight', 'asc')->get();
         });
         
-        $blocks = Cache::rememberForever('blocks', function () {
-            return Block::with('post:id,title,slug')
-            ->OrderBy('weight', 'asc')
-            ->get();
-        });
-
         $shop = Cache::rememberForever('shop', function () {
             return Store::first();
         });
@@ -64,7 +57,6 @@ class FrontApiController extends Controller
                 'products' => $initialProducts,
                 'sliders' => $sliders,
                 'categories' => $categories,
-                'blocks' => $blocks,
                 'shop' => $shop,
                 'posts' => $posts,
                 'config' => $config,
