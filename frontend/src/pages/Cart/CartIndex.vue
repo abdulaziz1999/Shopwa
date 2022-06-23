@@ -12,27 +12,31 @@
     </q-header>
     <div v-if="carts.items.length" class="">
 
-       <q-card square class="shadow q-py-sm">
+       <q-card square class="shadow q-py-sm q-mt-sm">
         <div class="q-px-md q-py-sm text-md text-weight-bold">
           Detil Pesanan
         </div>
-        <q-list class="bg-white" separator>
-          <q-item v-for="cart in carts.items" :key="cart.sku" class="q-pa-sm">
+        <q-list class="bg-white text-grey-10" separator>
+          <q-item v-for="cart in carts.items" :key="cart.sku">
             <q-item-section side class="q-pr-sm">
             <q-img :src="cart.image_url" style="width:90px;height:90px;"></q-img>
             </q-item-section>
             <q-item-section>
-              <div class="col overflow-hidden full-width">
-                <div class="text-weight-medium ellipsis">{{ cart.name }}</div>
-                <div class="text-grey-7 q-mb-xs text-caption" v-if="cart.note">{{ cart.note }}</div>
-                <div>Harga {{  moneyIDR(cart.price) }}</div>
-                <div class="flex items-center justify-between q-mt-sm">
-                  <div class="q-gutter-x-sm items-center">
-                    <q-btn flat padding="3px" round icon="remove_circle_outline" size="13px" @click="decrementQty(cart)" style="cursor:pointer;"></q-btn>
-                    <span class="text-weight-medium text-md">{{ cart.quantity }}</span>
-                    <q-btn flat padding="3px" round icon="add_circle_outline" size="13px" @click="incrementQty(cart)" style="cursor:pointer;"></q-btn>
+              <div class="col overflow-hidden full-width column">
+                <div>
+                  <div class="flex justify-between items-center">
+                    <div class="text-weight-medium ellipsis text-md">{{ cart.name }}</div>
+                    <q-btn @click="removeCart(cart)" outline size="10px" color="red" no-caps padding="2px 4px">hapus</q-btn>
                   </div>
-                  <q-btn @click="removeCart(cart)" outline size="10px" color="red" no-caps padding="2px 4px">hapus</q-btn>
+                  <div class="text-grey-7 q-mb-xs text-caption">Catatan: {{ cart.note ? cart.note : '-'}}</div>
+                </div>
+                <div class="flex items-center justify-between q-mt-auto">
+                  <div class="text-weight-medium">Harga {{  moneyIDR(cart.price) }}</div>
+                  <div class="q-gutter-x-sm items-center">
+                    <q-btn flat padding="4px" round icon="remove_circle_outline" size="13px" @click="decrementQty(cart)" style="cursor:pointer;"></q-btn>
+                    <span class="text-weight-medium text-md">{{ cart.quantity }}</span>
+                    <q-btn flat padding="4px" round icon="add_circle_outline" size="13px" @click="incrementQty(cart)" style="cursor:pointer;"></q-btn>
+                  </div>
                 </div>
               </div>
             </q-item-section>
@@ -103,7 +107,7 @@
             </g>
           </svg>
           <span class="q-ml-sm">
-            {{ canCheckout? 'Beli Sekarang' : 'Lengkapi form untuk beli' }}
+           Pesan Sekarang
           </span>
         </q-btn>
       </q-footer>

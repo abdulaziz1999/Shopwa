@@ -276,7 +276,7 @@
     transition-show="slide-up"
     transition-hide="slide-down"
     >
-      <q-card flat class="max-width bg-white" v-if="product">
+      <q-card flat class="max-width bg-white q-pb-md" v-if="product">
         <q-linear-progress size="10px" :value="100" />
           <q-card-section>
             <!-- <q-item-label class="text-weight-medium">{{ product.title }}</q-item-label> -->
