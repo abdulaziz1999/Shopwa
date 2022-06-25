@@ -104,14 +104,9 @@ export default {
   methods: {
     toDashboard() {
       if(this.user){
-        if(this.user.role == 'admin') {
-          this.$router.push({name: 'Settings'})
-        } else {
-          this.$router.push({name: 'CustomerOrder'})
-        }
-      } else {
+        this.$router.push({name: 'Settings'})
+      }else {
         this.$router.push({name: 'Login'})
-
       }
     }
   },

@@ -11,11 +11,7 @@ export function login ({commit, dispatch}, payload) {
       let user = response.data.results
       commit('SET_USER', user)
       Cookies.set('__token', response.data.token, { expires: 1 })
-      if(user.role == 'admin') {
-        self.$router.push({name: 'Settings'})
-      } else {
-        self.$router.push({name: 'CustomerOrder'})
-      }
+      self.$router.push({name: 'Settings'})
     }
   })
   .finally(() => {
@@ -33,11 +29,11 @@ export function register ({commit, dispatch}, payload) {
       Cookies.set('__token', response.data.token, { expires: 1 })
       let user = response.data.results
       commit('SET_USER', user)
-      if(user.role == 'admin') {
-        self.$router.push({name: 'Settings'})
-      } else {
-        self.$router.push({name: 'CustomerOrder'})
-      }
+      self.$router.push({name: 'Settings'})
+      // if(user.role == 'admin') {
+      // } else {
+      //   self.$router.push({name: 'CustomerOrder'})
+      // }
     }
   })
   .finally(() => {
