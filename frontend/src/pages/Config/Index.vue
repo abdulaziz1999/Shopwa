@@ -26,12 +26,8 @@
 </template>
 
 <script>
-// import Shipping from './shipping.vue'
 import Tampilan from './Tampilan.vue'
 import Theming from './Theming.vue'
-// import CheckoutConfig from './CheckoutConfig.vue'
-// import Notification from './Notification.vue'
-// import Tripay from './Tripay.vue'
 import Warehouse from './Warehouse.vue'
 import SystemUpdate from './SystemUpdate.vue'
  export default {

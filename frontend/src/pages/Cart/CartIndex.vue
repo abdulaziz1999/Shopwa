@@ -210,7 +210,7 @@ export default {
       }
       setTimeout(() => this.errors = [], 20000)
     },
-     formatPhoneNumber(number) {
+    formatPhoneNumber(number) {
       let formatted = number.replace(/\D/g,'')
 
       if(formatted.startsWith('0')) {

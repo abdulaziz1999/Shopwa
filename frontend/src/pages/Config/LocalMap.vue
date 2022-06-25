@@ -36,7 +36,6 @@ import "leaflet/dist/leaflet.css";
 import 'leaflet-geosearch/dist/geosearch.css';
 import L from 'leaflet'
 import { OpenStreetMapProvider } from 'leaflet-geosearch';
-// import * as GeoSearch from 'leaflet-geosearch';
 export default {
   props: ['config', 'coordinate'],
   data () {
@@ -148,8 +147,6 @@ export default {
         }).addTo(this.map);
 
       } else {
-
-        console.log('no access token');
 
         L.tileLayer('//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
            attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'

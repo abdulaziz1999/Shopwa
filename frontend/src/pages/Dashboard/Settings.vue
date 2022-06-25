@@ -52,12 +52,8 @@ export default {
         { label: 'Kategori', caption: 'Kelola kategori', path: 'CategoryIndex', icon: 'category', color: 'amber-7'},
         { label: 'Produk', caption: 'Tambah, edit dan hapus produk', path: 'AdminProductIndex', icon: 'inventory_2', color: 'deep-orange'},
         { label: 'Promo', caption: 'Kelola produk promo', path: 'PromoIndex', icon: 'local_offer', color: 'blue-7'},
-        // { label: 'Order', caption: 'Kelola pesanan', path: 'OrderIndex', icon: 'receipt', color: 'green'},
-        // { label: 'Akun Bank', caption: 'Kelola Akun Bank', path: 'BankIndex', icon: 'account_balance', color: 'purple'},
         { label: 'Slider', caption: 'Kelola slideshow', path: 'Slider', icon: 'view_carousel', color: 'teal'},
         { label: 'Artikel', caption: 'Kelola Artikel / blog', path: 'AdminPostIndex', icon: 'article', color: 'deep-orange'},
-        // { label: 'Block', caption: 'Kelola banner', path: 'AdminBlockIndex', icon: 'space_dashboard', color: 'green'},
-        // { label: 'Manage User', caption: 'kelola user', path: 'UserList', icon: 'group', color: 'teal'},
         { label: 'Pengaturan', caption: 'Pengaturan Website', path: 'Config', icon: 'settings', color: 'accent'},
       ]
     }
