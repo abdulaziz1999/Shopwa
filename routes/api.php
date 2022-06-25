@@ -10,15 +10,12 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PromoController;
 use App\Http\Controllers\StoreController;
 use App\Http\Controllers\ConfigController;
-use App\Http\Controllers\CouponController;
 use App\Http\Controllers\NotifyController;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\TripayController;
 use App\Http\Controllers\UpdateController;
 use App\Http\Controllers\ProductController;
-use App\Http\Controllers\PromoteController;
 use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\DiscountController;
 use App\Http\Controllers\FrontApiController;
 use App\Http\Controllers\ShippingController;
 use App\Http\Controllers\TransactionController;
@@ -57,23 +54,16 @@ Route::middleware(['auth:sanctum', 'auth.admin'])->group(function() {
     Route::post('paymentAccepted/{id}', [OrderController::class, 'paymentAccepted']);
     Route::post('inputResi', [OrderController::class, 'inputResi']);
     Route::post('cancelOrder/{id}', [OrderController::class, 'cancelOrder']);
-    // Update
+
     Route::get('update', [UpdateController::class, 'overview']);
     Route::post('update', [UpdateController::class, 'update']);  
     Route::post('clearCache', [UpdateController::class, 'clearCache']);  
-    
-    Route::apiResource('discount', DiscountController::class);
-
-    Route::apiResource('coupon', CouponController::class);
-
-    Route::apiResource('promote', PromoteController::class);
-    Route::get('getPromoDetail/{id}', [PromoteController::class, 'getPromoDetail']);
 
     Route::post('toggleProductPromo', [ProductController::class, 'toggleProductPromo']);
     Route::get('getProductPromo/{promoId}', [ProductController::class, 'getProductPromo']);
     Route::get('findNotDiscountProduct', [ProductController::class, 'findNotDiscountProduct']);
     Route::get('searchAdminProducts/{key}', [ProductController::class, 'searchAdminProducts']);
-    // new
+
     Route::apiResource('promo', PromoController::class);
     Route::get('getPromoDetail/{id}', [PromoController::class, 'getPromoDetail']);
     Route::post('removeProductPromo', [PromoController::class, 'removeProductPromo']);
@@ -157,8 +147,5 @@ Route::post('sendNotify', [NotifyController::class, 'sendNotify']);
 Route::post('requestPasswordToken', [PasswordResetController::class, 'requestPasswordToken']);
 Route::get('validateToken/{token}', [PasswordResetController::class, 'validateToken']);
 Route::post('resetPassword', [PasswordResetController::class, 'resetPassword']);
-
-Route::get('coupons/getByCode/{code}', [CouponController::class, 'getByCode']);
-Route::post('redeemCoupon', [CouponController::class, 'redeemCoupon']);
 
 Route::get('getInitialData', [FrontApiController::class, 'home']);
