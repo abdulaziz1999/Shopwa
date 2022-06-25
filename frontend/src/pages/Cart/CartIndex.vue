@@ -175,7 +175,6 @@ export default {
 
     },
     emitData(data) {
-      console.log(data);
       this.form.shipping_cost = data.amount
       this.form.user_coordinate = data.user_coordinate
       this.errors = []

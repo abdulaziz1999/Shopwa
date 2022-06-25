@@ -736,7 +736,6 @@ export default {
       return true
     },
     incrementQty() {
-      console.log(this.checkVarianIsReady());
       if(!this.checkVarianIsReady()) {
         this.$q.dialog({
           title: 'Pilih Varian!',
